@@ -8,12 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		11B7A7F122FABA200062178C /* MKQRScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 11B7A7EF22FABA200062178C /* MKQRScanner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		11B7A7FD22FABA7F0062178C /* QRScannerVC+ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7A7F822FABA7F0062178C /* QRScannerVC+ButtonAction.swift */; };
+		11B7A7FE22FABA7F0062178C /* QRScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7A7F922FABA7F0062178C /* QRScannerVC.swift */; };
+		11B7A7FF22FABA7F0062178C /* QRScannerVC+AVCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7A7FA22FABA7F0062178C /* QRScannerVC+AVCaptureDelegate.swift */; };
+		11B7A80022FABA7F0062178C /* MKQRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7A7FB22FABA7F0062178C /* MKQRScanner.swift */; };
+		11B7A80122FABA7F0062178C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11B7A7FC22FABA7F0062178C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		11B7A7EC22FABA200062178C /* MKQRScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MKQRScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B7A7EF22FABA200062178C /* MKQRScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKQRScanner.h; sourceTree = "<group>"; };
 		11B7A7F022FABA200062178C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11B7A7F822FABA7F0062178C /* QRScannerVC+ButtonAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "QRScannerVC+ButtonAction.swift"; sourceTree = "<group>"; };
+		11B7A7F922FABA7F0062178C /* QRScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerVC.swift; sourceTree = "<group>"; };
+		11B7A7FA22FABA7F0062178C /* QRScannerVC+AVCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "QRScannerVC+AVCaptureDelegate.swift"; sourceTree = "<group>"; };
+		11B7A7FB22FABA7F0062178C /* MKQRScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKQRScanner.swift; sourceTree = "<group>"; };
+		11B7A7FC22FABA7F0062178C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +56,23 @@
 		11B7A7EE22FABA200062178C /* MKQRScanner */ = {
 			isa = PBXGroup;
 			children = (
+				11B7A7FC22FABA7F0062178C /* Assets.xcassets */,
+				11B7A7F722FABA7F0062178C /* Controllers */,
+				11B7A7FB22FABA7F0062178C /* MKQRScanner.swift */,
 				11B7A7EF22FABA200062178C /* MKQRScanner.h */,
 				11B7A7F022FABA200062178C /* Info.plist */,
 			);
 			path = MKQRScanner;
+			sourceTree = "<group>";
+		};
+		11B7A7F722FABA7F0062178C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				11B7A7F822FABA7F0062178C /* QRScannerVC+ButtonAction.swift */,
+				11B7A7F922FABA7F0062178C /* QRScannerVC.swift */,
+				11B7A7FA22FABA7F0062178C /* QRScannerVC+AVCaptureDelegate.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +118,7 @@
 				TargetAttributes = {
 					11B7A7EB22FABA200062178C = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 					};
 				};
 			};
@@ -120,6 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11B7A80122FABA7F0062178C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +155,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11B7A7FF22FABA7F0062178C /* QRScannerVC+AVCaptureDelegate.swift in Sources */,
+				11B7A80022FABA7F0062178C /* MKQRScanner.swift in Sources */,
+				11B7A7FE22FABA7F0062178C /* QRScannerVC.swift in Sources */,
+				11B7A7FD22FABA7F0062178C /* QRScannerVC+ButtonAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +290,7 @@
 		11B7A7F522FABA200062178C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -277,6 +307,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mkhglab.MKQRScanner;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -285,6 +316,7 @@
 		11B7A7F622FABA200062178C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
