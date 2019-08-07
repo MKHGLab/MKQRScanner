@@ -9,8 +9,11 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-<img src="https://raw.githubusercontent.com/MKHGLab/MKQRScanner/master/Screenshots/screenshot_homePNG" width="200px" > 
-<img src="https://raw.githubusercontent.com/MKHGLab/MKQRScanner/master/Screenshots/screenshot_scan_QR.PNG" width="200px" >
+Screenshots:
+
+<img src="https://github.com/MKHGLab/MKQRScanner/blob/master/Screenshots/screenshot_home.png" width="200px" > <img src="https://github.com/MKHGLab/MKQRScanner/blob/master/Screenshots/screenshot_scan_QR.png" width="200px" >
+
+Sample Usage:
 
 ```swift
 import UIKit
@@ -58,7 +61,7 @@ pod 'MKQRScanner'
 ```
 
 ## Author
-MD. Kamrul Hasan, mhgolap11@gmail.com
+Md. Kamrul Hasan, mhgolap11@gmail.com
 
 © MKHG Lab, mkhglab@gmail.com
 
