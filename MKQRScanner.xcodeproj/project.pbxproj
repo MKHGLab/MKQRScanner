@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1127C619230D570100C5857F /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127C618230D570100C5857F /* UIImageExt.swift */; };
+		1127C61B230D5B6600C5857F /* UIColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1127C61A230D5B6600C5857F /* UIColorExt.swift */; };
 		11B7A7F122FABA200062178C /* MKQRScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 11B7A7EF22FABA200062178C /* MKQRScanner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		11B7A7FD22FABA7F0062178C /* QRScannerVC+ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7A7F822FABA7F0062178C /* QRScannerVC+ButtonAction.swift */; };
 		11B7A7FE22FABA7F0062178C /* QRScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7A7F922FABA7F0062178C /* QRScannerVC.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1127C618230D570100C5857F /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
+		1127C61A230D5B6600C5857F /* UIColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExt.swift; sourceTree = "<group>"; };
 		11B7A7EC22FABA200062178C /* MKQRScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MKQRScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B7A7EF22FABA200062178C /* MKQRScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MKQRScanner.h; sourceTree = "<group>"; };
 		11B7A7F022FABA200062178C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1127C617230D56F100C5857F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1127C618230D570100C5857F /* UIImageExt.swift */,
+				1127C61A230D5B6600C5857F /* UIColorExt.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		11B7A7E222FABA200062178C = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				11B7A7FC22FABA7F0062178C /* Assets.xcassets */,
+				1127C617230D56F100C5857F /* Extensions */,
 				11B7A7F722FABA7F0062178C /* Controllers */,
 				11B7A7FB22FABA7F0062178C /* MKQRScanner.swift */,
 				11B7A7EF22FABA200062178C /* MKQRScanner.h */,
@@ -155,6 +169,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1127C619230D570100C5857F /* UIImageExt.swift in Sources */,
+				1127C61B230D5B6600C5857F /* UIColorExt.swift in Sources */,
 				11B7A7FF22FABA7F0062178C /* QRScannerVC+AVCaptureDelegate.swift in Sources */,
 				11B7A80022FABA7F0062178C /* MKQRScanner.swift in Sources */,
 				11B7A7FE22FABA7F0062178C /* QRScannerVC.swift in Sources */,

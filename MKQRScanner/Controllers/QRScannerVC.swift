@@ -73,14 +73,15 @@ class QRScannerVC: UIViewController {
         
         let width = self.view.bounds.width * 0.6
         let center = self.view.center
-        let cross = getImageFromBundle(name: "focus")
-        focusIV = UIImageView(image: cross)
+        let focus = getImageFromBundle(name: "focus")?.tint(with: UIColor.darkYellow)
+        focusIV = UIImageView(image: focus)
         focusIV.frame = CGRect(x: center.x - width/2, y: center.y - width/2, width: width, height: width)
         focusIV.tintColor = .yellow
         self.view.addSubview(focusIV)
         
         infoLabel = UILabel(frame: CGRect(x: 0, y: self.view.bounds.height-60, width: self.view.bounds.width, height: 20))
         infoLabel.text = "Put the QR in the frame"
+        infoLabel.textColor = UIColor.darkYellow
         infoLabel.textAlignment = .center
         self.view.addSubview(infoLabel)
         
