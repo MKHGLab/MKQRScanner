@@ -36,6 +36,7 @@ class QRScannerVC: UIViewController {
     let systemSoundId : SystemSoundID = 1016
     
     //captureSession manages capture activity and coordinates between input device and captures outputs
+    var captureDevice: AVCaptureDevice?
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     
@@ -51,11 +52,13 @@ class QRScannerVC: UIViewController {
     
     weak var delegate: QRScannerVCDelegate?
     
-    override public func viewDidDisappear(_ animated: Bool) {
+    override public func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         captureSession?.stopRunning()
     }
     
-    override public func viewDidAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         captureSession?.startRunning()
     }
     
@@ -79,8 +82,12 @@ class QRScannerVC: UIViewController {
         focusIV.tintColor = .yellow
         self.view.addSubview(focusIV)
         
-        infoLabel = UILabel(frame: CGRect(x: 0, y: self.view.bounds.height-60, width: self.view.bounds.width, height: 20))
-        infoLabel.text = "Put the QR in the frame"
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(focusTapped(tapGestureRecognizer:)))
+        focusIV.isUserInteractionEnabled = true
+        focusIV.addGestureRecognizer(tapGestureRecognizer)
+        
+        infoLabel = UILabel(frame: CGRect(x: 0, y: self.view.bounds.height-80, width: self.view.bounds.width, height: 20))
+        infoLabel.text = "Put the code in the frame"
         infoLabel.textColor = UIColor.darkYellow
         infoLabel.textAlignment = .center
         self.view.addSubview(infoLabel)
@@ -96,7 +103,7 @@ class QRScannerVC: UIViewController {
     
     func startCapturing() {
         //AVCaptureDevice allows us to reference a physical capture device (video in our case)
-        let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
+        captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
         
         if let captureDevice = captureDevice {
             
@@ -114,7 +121,7 @@ class QRScannerVC: UIViewController {
                 
                 //We tell our Output the expected Meta-data type
                 captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-                captureMetadataOutput.metadataObjectTypes = [.code128, .qr,.ean13, .ean8, .code39, .upce, .aztec, .pdf417] //AVMetadataObject.ObjectType
+                captureMetadataOutput.metadataObjectTypes = [.upce, .aztec, .code39, .code39Mod43, .ean13, .ean8, .code93, .code128, .pdf417, .qr, .aztec, .interleaved2of5, .itf14, .dataMatrix] //AVMetadataObject.ObjectType
                 
                 captureSession?.startRunning()
                 
@@ -134,6 +141,27 @@ class QRScannerVC: UIViewController {
                 dismissVC()
             }
         }
+    }
+    
+
+    @objc func focusTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        focusIV.alpha = 0.75
+        UIView.animate(withDuration: 0.6,
+        animations: { [weak self] in
+            self?.focusIV.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        },
+        completion: { _ in
+            UIView.animate(withDuration: 0.6) { [weak self] in
+                self?.focusIV.transform = CGAffineTransform.identity
+            }
+        })
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        print(tapGestureRecognizer.location(in: tappedImage))
+
+        try? captureDevice?.lockForConfiguration()
+        captureDevice?.focusPointOfInterest = tapGestureRecognizer.location(in: tappedImage)
+        captureDevice?.unlockForConfiguration()
     }
 }
 

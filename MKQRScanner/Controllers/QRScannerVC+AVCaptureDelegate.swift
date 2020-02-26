@@ -39,6 +39,12 @@ extension QRScannerVC: AVCaptureMetadataOutputObjectsDelegate {
         codeFrame.frame = metaDataCoordinates.bounds
         */
         AudioServicesPlayAlertSound(systemSoundId)
+        if #available(iOS 10.0, *) {
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        } else {
+            // Fallback on earlier versions
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        }
         
         captureSession?.stopRunning()
         
